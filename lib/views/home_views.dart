@@ -6,8 +6,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Notesviewbody(),
+    return  Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add),),
+      body:const Notesviewbody(),
     );
   }
 }
