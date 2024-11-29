@@ -23,8 +23,8 @@ class Notesitems extends StatelessWidget {
               padding: const EdgeInsets.only(top: 16.0),
               child: Text(
                 "Make me know what are you want to acheive today",
-                style:
-                    TextStyle(color: Colors.black.withOpacity(0.4), fontSize: 20),
+                style: TextStyle(
+                    color: Colors.black.withOpacity(0.4), fontSize: 20),
               ),
             ),
             trailing: IconButton(

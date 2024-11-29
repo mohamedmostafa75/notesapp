@@ -7,13 +7,14 @@ class Customappbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-     
       children: [
         Text(
           "Notes",
           style: TextStyle(color: Colors.white, fontSize: 30),
         ),
-        Spacer(flex: 1,),
+        Spacer(
+          flex: 1,
+        ),
         Customsearchicon(),
       ],
     );
