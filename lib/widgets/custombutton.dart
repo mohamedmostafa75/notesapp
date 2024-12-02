@@ -15,7 +15,7 @@ final String name;
               
                 height: 40,
                 width: double.infinity,
-                child: Center(child: Text(name,style: TextStyle(color: Colors.black),)),
+                child: Center(child: Text(name,style: const TextStyle(color: Colors.black),)),
               ),
     );
   }

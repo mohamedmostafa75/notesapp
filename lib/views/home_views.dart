@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
                 return const Notesviewbottom();
               });
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: const Notesviewbody(),
     );

@@ -6,15 +6,16 @@ class Notesitems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: () {
-      Navigator.push(context, MaterialPageRoute(builder: (context){
-        return EditView();
-      }));
-    },
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return const EditView();
+        }));
+      },
       child: Container(
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-          color: Color(0xffFFCD7A),
+          color: const Color(0xffFFCD7A),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -35,7 +36,7 @@ class Notesitems extends StatelessWidget {
               ),
               trailing: IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     size: 35,
                     Icons.delete,
                     color: Colors.black,
