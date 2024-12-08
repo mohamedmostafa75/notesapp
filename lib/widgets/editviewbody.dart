@@ -19,11 +19,11 @@ class Editviewbody extends StatelessWidget {
         SizedBox(
           height:50 ,
         ),
-         const Customtextfield(hinttext: "title"),
-          const SizedBox(
+         Customtextfield(hinttext: "title"),
+          SizedBox(
             height: 15,
           ),
-        const  Customtextfield(hinttext: "content",maxline: 5,),
+        Customtextfield(hinttext: "content",maxline: 5,),
       ],
     );
   }
