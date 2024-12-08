@@ -1,68 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/custombutton.dart';
-import 'package:notes_app/widgets/customtextfield.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:notes_app/add%20notecubits/addnotes_cubits_cubit.dart';
+import 'package:notes_app/widgets/addnotesform.dart';
 
 class Notesviewbottom extends StatelessWidget {
   const Notesviewbottom({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.all(16),
-      child: addnotesform(),
-    );
-  }
-}
-
-class addnotesform extends StatefulWidget {
-  const addnotesform({
-    super.key,
-  });
-
-  @override
-  State<addnotesform> createState() => _addnotesformState();
-}
-
-class _addnotesformState extends State<addnotesform> {
-  final GlobalKey<FormState> Formkey = GlobalKey();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String? title, subtitle;
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: Formkey,
-      child: Column(
-        children: [
-          Customtextfield(
-            hinttext: "title",
-            onSaved: (value) {
-              title = value;
-            },
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Customtextfield(
-            hinttext: "content",
-            maxline: 5,
-            onSaved: (value) {
-              subtitle = value;
-            },
-          ),
-          const Spacer(
-            flex: 1,
-          ),
-          Custombutton(
-              ontap: () {
-                if (Formkey.currentState!.validate()) {
-                  Formkey.currentState!.save();
-                } else {
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
-              },
-              name: "Add")
-        ],
+      child: BlocConsumer<AddnotesCubit, NotesCubitsState>(
+        listener: (context, state) {
+          if (state is Addnotesfaliure) {
+            print("failed${state.errmessage}");
+          }
+          if (state is Addnotessuccess) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+              inAsyncCall: state is AddnotesLoading ? true : false,
+              child: addnotesform());
+        },
       ),
     );
   }
