@@ -9,22 +9,25 @@ class Notesviewbottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(16),
-      child: BlocConsumer<AddnotesCubit, NotesCubitsState>(
-        listener: (context, state) {
-          if (state is Addnotesfaliure) {
-            print("failed${state.errmessage}");
-          }
-          if (state is Addnotessuccess) {
-            Navigator.pop(context);
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-              inAsyncCall: state is AddnotesLoading ? true : false,
-              child: addnotesform());
-        },
+    return BlocProvider(
+      create: (context) => AddnotesCubit(),
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: BlocConsumer<AddnotesCubit, NotesCubitsState>(
+          listener: (context, state) {
+            if (state is Addnotesfaliure) {
+              print("failed${state.errmessage}");
+            }
+            if (state is Addnotessuccess) {
+              Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+                inAsyncCall: state is AddnotesLoading ? true : false,
+                child: addnotesform());
+          },
+        ),
       ),
     );
   }
