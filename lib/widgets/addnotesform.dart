@@ -41,21 +41,30 @@ class _addnotesformState extends State<addnotesform> {
               subtitle = value;
             },
           ),
-          const Spacer(
-            flex: 1,
+          SizedBox(
+            height: 75,
           ),
-          Custombutton(
-              ontap: () {
-                if (Formkey.currentState!.validate()) {
-                  Formkey.currentState!.save();
-                  var notemodel = NotesappModel(title: title!, subtitle: subtitle!, date: DateTime.now().toString(), color: kPrimarycolor.value);
-                  BlocProvider.of<AddnotesCubit>(context).addnote(notemodel);
-                } else {
-                  autovalidateMode = AutovalidateMode.always;
-                  setState(() {});
-                }
-              },
-              name: "Add")
+          BlocBuilder<AddnotesCubit, NotesCubitsState>(
+            builder: (context, state) {
+              return Custombutton(
+                isloading: state is AddnotesLoading ? true : false,
+                ontap: () {
+                  if (Formkey.currentState!.validate()) {
+                    Formkey.currentState!.save();
+                    var notemodel = NotesappModel(
+                        title: title!,
+                        subtitle: subtitle!,
+                        date: DateTime.now().toString(),
+                        color: kPrimarycolor.value);
+                    BlocProvider.of<AddnotesCubit>(context).addnote(notemodel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
+            },
+          )
         ],
       ),
     );

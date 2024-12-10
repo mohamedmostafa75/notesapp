@@ -8,6 +8,7 @@ import 'package:notes_app/views/home_views.dart';
 
 import 'package:notes_app/widgets/primarykey.dart';
 
+
 void main() async {
   await Hive.initFlutter();
   Bloc.observer = SimpleBlocObserver();
