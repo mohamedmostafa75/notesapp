@@ -42,7 +42,7 @@ class _addnotesformState extends State<addnotesform> {
             },
           ),
           SizedBox(
-            height: 75,
+            height: 120,
           ),
           BlocBuilder<AddnotesCubit, NotesCubitsState>(
             builder: (context, state) {
