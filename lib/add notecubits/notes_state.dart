@@ -4,15 +4,17 @@ part of 'notes_cubit.dart';
 sealed class NotesState {}
 
 final class NotesInitial extends NotesState {}
-class notesloading extends NotesState{}
-class notessuccess extends NotesState{
-  final List <NotesappModel> notes;
+
+class notesloading extends NotesState {}
+
+class notessuccess extends NotesState {
+  final List<NotesappModel> notes;
 
   notessuccess(this.notes);
-
 }
-class notesfaliure extends NotesState{
+
+class notesfaliure extends NotesState {
   final String errmessage;
 
-  notesfaliure( this.errmessage);
+  notesfaliure(this.errmessage);
 }

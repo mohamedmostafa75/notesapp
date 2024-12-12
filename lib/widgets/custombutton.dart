@@ -16,11 +16,17 @@ class Custombutton extends StatelessWidget {
         height: 40,
         width: double.infinity,
         child: Center(
-          
-            child: isloading ?  SizedBox(height: 24,width: 24,child: CircularProgressIndicator(color: Colors.black,)) : const Text(
-          "ADD",
-          style: TextStyle(color: Colors.black),
-        )),
+            child: isloading
+                ? const SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: CircularProgressIndicator(
+                      color: Colors.black,
+                    ))
+                : const Text(
+                    "ADD",
+                    style: TextStyle(color: Colors.black),
+                  )),
       ),
     );
   }
