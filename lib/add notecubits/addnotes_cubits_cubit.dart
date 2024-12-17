@@ -6,7 +6,7 @@ import 'package:notes_app/widgets/primarykey.dart';
 
 part 'addnotes_cubits_state.dart';
 
-class AddnotesCubit extends Cubit<NotesCubitsState> {
+class AddnotesCubit extends Cubit<addNotesState> {
   AddnotesCubit() : super(AddnotesInitial());
   addnote(NotesappModel note)async{
     emit(AddnotesLoading());
@@ -16,7 +16,7 @@ class AddnotesCubit extends Cubit<NotesCubitsState> {
  await notebox.add(note);
  emit(Addnotessuccess());
 }  catch (e) {
-   emit(Addnotesfaliure(errmessage: e.toString()));
+   emit(Addnotesfaliure(e.toString()));
 }
 
   }

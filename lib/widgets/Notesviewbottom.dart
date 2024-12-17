@@ -11,13 +11,14 @@ class Notesviewbottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddnotesCubit(),
-      child: BlocConsumer<AddnotesCubit, NotesCubitsState>(
+      child: BlocConsumer<AddnotesCubit, addNotesState>(
         listener: (context, state) {
-          if (state is Addnotesfaliure) {
-            print("failed${state.errmessage}");
-          }
+        
           if (state is Addnotessuccess) {
             Navigator.pop(context);
+          }
+            if (state is Addnotesfaliure) {
+            print("failed${state.errmessage}");
           }
         },
         builder: (context, state) {

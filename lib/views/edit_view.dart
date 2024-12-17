@@ -11,7 +11,7 @@ class EditView extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           children: [
-          Editviewbody(),
+            Editviewbody(),
           ],
         ),
       ),
