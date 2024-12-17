@@ -5,5 +5,4 @@ abstract class NotesState {}
 
 final class NotesInitial extends NotesState {}
 
-
-
+final class Notesuccess extends NotesState {}

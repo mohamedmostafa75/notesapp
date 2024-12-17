@@ -8,6 +8,7 @@ class Custombutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      
       onTap: ontap,
       child: Container(
         decoration: BoxDecoration(
@@ -27,7 +28,9 @@ class Custombutton extends StatelessWidget {
                     "ADD",
                     style: TextStyle(color: Colors.black),
                   )),
+                  
       ),
     );
+    
   }
 }

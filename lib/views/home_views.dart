@@ -9,23 +9,20 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          shape: const CircleBorder(),
-          onPressed: () {
-            showModalBottomSheet(
-                isScrollControlled: true,
-                context: context,
-                builder: (context) {
-                  return const Notesviewbottom();
-                });
-          },
-          child: const Icon(Icons.add),
-        ),
-        body: const Notesviewbody(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        shape: const CircleBorder(),
+        onPressed: () {
+          showModalBottomSheet(
+              isScrollControlled: true,
+              context: context,
+              builder: (context) {
+                return const Notesviewbottom();
+              });
+        },
+        child: const Icon(Icons.add),
       ),
+      body: const Notesviewbody(),
     );
   }
 }
